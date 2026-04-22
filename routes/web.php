@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ZoneController;
+use App\Models\Zone;
 
 Route::get('/', function () {
-    return view('landing.pages.index');
+    $zones = Zone::all();
+    return view('landing.pages.index', compact('zones'));
 });
 
 Route::get('/detail', function () {
@@ -19,6 +22,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', function () {
     return view('admin.pages.index');
     })->name('index');
+    Route::resource('zones', ZoneController::class);
 });
 
 Route::middleware('auth')->group(function () {

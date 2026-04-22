@@ -141,6 +141,7 @@
 				<div></div>
 			</div>
 			<div class="row">
+				@forelse ($zones as $zone)
 				<div class="col-lg-4 col-sm-12 col-xs-12">
 					<div class="single_property">
 						<img src="{{ asset('storage/landing/assets/img/property/1.jpg')}}" class="img-fluid" alt="" />
@@ -161,9 +162,14 @@
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
-						</div>
+						</div>	
 					</div><!--- END SINGLE PROPERTY -->
 				</div><!--- END COL -->
+				@empty
+					
+				@endforelse
+				
+					
 				<div class="col-lg-4 col-sm-12 col-xs-12">
 					<div class="single_property">
 						<img src="{{ asset('storage/landing/assets/img/property/2.jpg')}}" class="img-fluid" alt="" />
