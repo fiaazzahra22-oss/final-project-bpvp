@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\AttractionController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ZoneController;
+use App\Http\Controllers\ReviewsController;
 use App\Models\Zone;
+use App\Models\Attraction;
 
 Route::get('/', function () {
     $zones = Zone::all();
@@ -23,6 +26,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     return view('admin.pages.index');
     })->name('index');
     Route::resource('zones', ZoneController::class);
+    Route::resource('attractions',AttractionController::class);
+    Route::resource('reviews', ReviewsController::class);
 });
 
 Route::middleware('auth')->group(function () {

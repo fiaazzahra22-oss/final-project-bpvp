@@ -16,10 +16,10 @@
             <label for="price_range" class="form-label">Price Range</label>
             <input type="text" class="form-control" id="price_range" name="price_range" required>
         </div>
-        <diiv class="mb-3">
+        <div class="mb-3">
             <label for="image" class="form-label">Image</label>
             <input type="file" class="form-control" id="image" name="image" required>
-        </diiv>
+        </div>
         <button type="submit" class="btn btn-primary">Create Zone</button>
       </form>
 @endsection
