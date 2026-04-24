@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('reviewer');
             $table->text('description');
             $table->integer('rating');
+            $table->boolean('is_published')->default(false);
 
             $table->timestamps();
         });

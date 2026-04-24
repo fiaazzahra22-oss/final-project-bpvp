@@ -137,19 +137,20 @@
 	<section class="template_property">
 		<div class="container">
 			<div class="section-title text-center wow zoomIn">
-				<h2>Latest listing</h2>
+				<h2>List of Zones</h2>
 				<div></div>
 			</div>
 			<div class="row">
 				@forelse ($zones as $zone)
 				<div class="col-lg-4 col-sm-12 col-xs-12">
 					<div class="single_property">
-						<img src="{{ Storage::url($zone->image) }}" class="img-fluid" alt="" />
+						<img src="{{ asset('storage/image/', $zone->id) }}->image) }}" class="img-fluid" alt="" />
 						<div class="single_property_description text-center">
 							<span><i class="fa fa-object-group"></i>Attraction: </span>
 						</div>
-						<div class="single_property_price">
-							Per PAX <span>Rp. {{ $zone->price_range }}</span>
+						<div class="single_property_content">
+							<h4><a href='{{ route('landing.zone', $zone)}}'>{{ $zone->name }}</a></h4>
+							<p>{{ $zone->description }}</p>
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
@@ -162,138 +163,37 @@
 					
 				@endforelse
 				
-					
-				<div class="col-lg-4 col-sm-12 col-xs-12">
-					<div class="single_property">
-						<img src="{{ asset('storage/landing/assets/img/property/2.jpg')}}" class="img-fluid" alt="" />
-						<div class="single_property_description text-center">
-							<span><i class="fa fa-object-group"></i> 900 sq ft</span>
-							<span><i class="fa fa-bed"></i> 4 Badrooms</span>
-							<span><i class="fa fa-star-o"></i> 2 Baths</span>
-						</div>
-						<div class="single_property_content">
-							<h4><a href="#">Rinehart Road</a></h4>
-							<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical. </p>
-
-						</div>
-						<div class="single_property_price">
-							High Meadow Lane Mount Pleasant <span>$ 170,000</span>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-						</div>
-					</div>
-				</div><!--- END  COL-->
-				<div class="col-lg-4 col-sm-12 col-xs-12">
-					<div class="single_property">
-						<img src="{{ asset('storage/landing/assets/img/property/3.jpg')}}" class="img-fluid" alt="" />
-						<div class="single_property_description text-center">
-							<span><i class="fa fa-object-group"></i> 900 sq ft</span>
-							<span><i class="fa fa-bed"></i> 4 Badrooms</span>
-							<span><i class="fa fa-star-o"></i> 2 Baths</span>
-						</div>
-						<div class="single_property_content">
-							<h4><a href="#">Brighton Circle Road</a></h4>
-							<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical. </p>
-
-						</div>
-						<div class="single_property_price">
-							High Meadow Lane Mount Pleasant <span>$ 170,000</span>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-						</div>
-					</div>
-				</div><!--- END  COL-->
-			</div><!--- END ROW -->
-		</div><!--- END CONTAINER -->
-	</section>
 	<!-- END  PROPERTY -->
 
 	<!-- START PROPERTY -->
 	<section class="template_property section-padding">
 		<div class="container">
 			<div class="section-title  text-center wow zoomIn">
-				<h2>Latest for Rent</h2>
+				<h2>List of Attractions</h2>
 				<div></div>
 			</div>
 			<div class="row">
+				@forelse ($attractions as $attraction)
 				<div class="col-lg-4 col-sm-12 col-xs-12">
 					<div class="single_property">
-						<img src="{{ asset('storage/landing/assets/img/property/4.jpg')}}" class="img-fluid" alt="" />
+						<img src="{{ asset('storage/image/' . $attraction->image) }}" class="img-fluid" alt="" />
 						<div class="single_property_description text-center">
-							<span><i class="fa fa-object-group"></i> 900 sq ft</span>
-							<span><i class="fa fa-bed"></i> 4 Badrooms</span>
-							<span><i class="fa fa-star-o"></i> 2 Baths</span>
+							<span><i class="fa fa-object-group"></i>Attraction: </span>
 						</div>
 						<div class="single_property_content">
-							<h4><a href="#">Lynn Ogden Lane</a></h4>
-							<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical. </p>
-
-						</div>
-						<div class="single_property_price">
-							High Meadow Lane Mount Pleasant <span>$ 170,000</span>
+							<h4><a href='#'>{{ $zone->name }}</a></h4>
+							<p>{{ $zone->description }}</p>
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
 						</div>
-					</div>
-				</div><!--- END  COL-->
-				<div class="col-lg-4 col-sm-12 col-xs-12">
-					<div class="single_property">
-						<img src="{{ asset('storage/landing/assets/img/property/5.jpg')}}" class="img-fluid" alt="" />
-						<div class="single_property_description text-center">
-							<span><i class="fa fa-object-group"></i> 900 sq ft</span>
-							<span><i class="fa fa-bed"></i> 4 Badrooms</span>
-							<span><i class="fa fa-star-o"></i> 2 Baths</span>
-						</div>
-						<div class="single_property_content">
-							<h4><a href="#">2045 B Street</a></h4>
-							<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical. </p>
-
-						</div>
-						<div class="single_property_price">
-							High Meadow Lane Mount Pleasant <span>$ 170,000</span>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-						</div>
-					</div>
-				</div><!--- END  COL-->
-				<div class="col-lg-4 col-sm-12 col-xs-12">
-					<div class="single_property">
-						<img src="{{ asset('storage/landing/assets/img/property/6.jpg')}}" class="img-fluid" alt="" />
-						<div class="single_property_description text-center">
-							<span><i class="fa fa-object-group"></i> 900 sq ft</span>
-							<span><i class="fa fa-bed"></i> 4 Badrooms</span>
-							<span><i class="fa fa-star-o"></i> 2 Baths</span>
-						</div>
-						<div class="single_property_content">
-							<h4><a href="#">White Maria Street</a></h4>
-							<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical. </p>
-
-						</div>
-						<div class="single_property_price">
-							High Meadow Lane Mount Pleasant <span>$ 170,000</span>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-						</div>
-					</div>
-				</div><!--- END  COL-->
-			</div><!--- END ROW -->
-		</div><!--- END CONTAINER -->
-	</section>
+					</div><!--- END SINGLE PROPERTY -->
+				</div><!--- END COL -->
+				@empty
+					
+				@endforelse
 	<!-- END  PROPERTY -->
 
 	<!-- START PORTFOLIO -->

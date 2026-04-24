@@ -2,7 +2,6 @@
 
 @section('content')
       <h1>Reviews</h1>
-      <a href="{{ route('admin.reviews.create') }}" class="btn btn-primary">Create Review</a>
       <hr>
 
       <table class="table">

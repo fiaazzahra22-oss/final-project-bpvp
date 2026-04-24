@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attraction;
 use App\Models\Zone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -81,5 +82,18 @@ class ZoneController extends Controller
             return redirect()->route('admin.zones.index')
                 ->with('success', 'Zone deleted successfully.');
         }
+    }
+
+    public function dashboard()
+{
+    $totalZones = Zone::count();
+
+    return view('admin.dashboard', compact('totalZones'));
+
+    
+}
+public function showZones(Attraction $attraction)
+    {
+        return view ('landing.pages.detail2', compact('attraction'));
     }
 }
